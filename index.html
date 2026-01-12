@@ -1,0 +1,414 @@
+# Site Difranca Calçados - Estrutura Completa
+
+Vou criar um site completo e estruturado para a Difranca Calçados, seguindo as diretrizes e incluindo todos os elementos solicitados.
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difranca Calçados | Calçados de Qualidade em Franca-SP</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1a3a5f;
+            --secondary: #d4af37;
+            --accent: #c1272d;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* Header e Navegação */
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand .detran {
+            color: var(--accent);
+            font-weight: 800;
+        }
+        
+        .navbar-brand .empresa {
+            color: var(--primary);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(26, 58, 95, 0.85), rgba(26, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        
+        /* Seções gerais */
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .icon-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .icon-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-box i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .icon-box h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Botões */
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            font-weight: 600;
+            padding: 10px 25px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #142a45;
+            border-color: #142a45;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            color: #000;
+            font-weight: 600;
+            padding: 10px 25px;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #b8941f;
+            border-color: #b8941f;
+            color: #000;
+            transform: translateY(-2px);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            font-weight: 600;
+            padding: 10px 25px;
+            transition: all 0.3s;
+        }
+        
+        .btn-accent:hover {
+            background-color: #9a1f24;
+            border-color: #9a1f24;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Destaques */
+        .highlight-box {
+            background-color: var(--light);
+            border-left: 5px solid var(--secondary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        footer h5 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho com navegação -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <span class="detran">DETRAN PR</span> <span class="empresa">Difranca Calçados</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active text-dark" href="#inicio">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#sobre">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#produtos">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#diferenciais">Diferenciais</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#contato">Contato</a>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <a class="btn btn-accent" href="#produtos">Compre Agora</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seção Hero -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Calçados de Qualidade em <span class="text-warning">Franca-SP</span></h1>
+                    <p class="lead mb-4">A <strong>Difranca Calçados</strong> oferece os melhores calçados com conforto, durabilidade e estilo. Com mais de uma década no mercado, garantimos satisfação em cada compra.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#produtos" class="btn btn-secondary btn-lg">
+                            <i class="bi bi-cart-check me-2"></i>Ver Produtos
+                        </a>
+                        <a href="#contato" class="btn btn-primary btn-lg">
+                            <i class="bi bi-telephone me-2"></i>Fale Conosco
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Calçados Difranca" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="sobre" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Sobre a <span class="text-primary">Difranca Calçados</span></h2>
+                    <p class="mb-4">A <strong>Difranca Calçados</strong> é uma empresa sólida e confiável no mercado de calçados, com mais de uma década de experiência oferecendo produtos de qualidade aos seus clientes.</p>
+                    
+                    <div class="highlight-box">
+                        <h4 class="text-primary">DETRAN PR Difranca Calçados</h4>
+                        <p>Fundada em <strong>28 de outubro de 2013</strong>, a empresa <strong>Difranca Comércio de Calçados LTDA</strong> (CNPJ 19.147.152/0001-40) está localizada na cidade de <strong>Franca, São Paulo</strong>, capital nacional do calçado.</p>
+                    </div>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-4 mb-4">
+                            <div class="icon-box">
+                                <i class="bi bi-building"></i>
+                                <h4>Atividade Principal</h4>
+                                <p>Comércio varejista de calçados, conforme classificação da Receita Federal (47.82-2-01).</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="icon-box">
+                                <i class="bi bi-check-circle"></i>
+                                <h4>Situação Cadastral</h4>
+                                <p>Empresa <strong>ATIVA</strong> e regularizada perante os órgãos competentes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="icon-box">
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>Localização</h4>
+                                <p>Estamos em Franca-SP, polo nacional da indústria calçadista.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contato" class="btn btn-primary mt-3">
+                        <i class="bi bi-info-circle me-2"></i>Saiba Mais Sobre Nós
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Produtos -->
+    <section id="produtos" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Nossos <span class="text-primary">Produtos</span></h2>
+            <p class="text-center mb-5">Oferecemos uma ampla variedade de calçados para todos os gostos e ocasiões.</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Tênis Esportivo">
+                        <div class="card-body">
+                            <h4 class="card-title">Tênis Esportivos</h4>
+                            <p class="card-text">Conforto e tecnologia para suas atividades físicas e momentos de lazer.</p>
+                            <a href="#contato" class="btn btn-accent">Consultar Disponibilidade</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1529810313688-44ea1c2d81d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Calçados Sociais">
+                        <div class="card-body">
+                            <h4 class="card-title">Calçados Sociais</h4>
+                            <p class="card-text">Elegância e sofisticação para ocasiões formais e eventos especiais.</p>
+                            <a href="#contato" class="btn btn-accent">Consultar Disponibilidade</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Calçados Casuais">
+                        <div class="card-body">
+                            <h4 class="card-title">Calçados Casuais</h4>
+                            <p class="card-text">Estilo e conforto para o dia a dia, com designs modernos e versáteis.</p>
+                            <a href="#contato" class="btn btn-accent">Consultar Disponibilidade</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#contato" class="btn btn-primary btn-lg">
+                    <i class="bi bi-whatsapp me-2"></i>Entre em Contato para Mais Opções
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Diferenciais -->
+    <section id="diferenciais" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Por que Escolher a <span class="text-primary">Difranca Calçados</span>?</h2>
+            <p class="text-center mb-5">Conheça os diferenciais que nos tornam a melhor opção em calçados.</p>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="bi bi-shield-check text-primary fs-1 me-3"></i>
+                        </div>
+                        <div>
+                            <h4>Qualidade Garantida</h4>
+                            <p>Todos os nossos produtos passam por rigoroso controle de qualidade, garantindo durabilidade e conforto.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="bi bi-truck text-primary fs-1 me-3"></i>
+                        </div>
+                        <div>
+                            <h4>
